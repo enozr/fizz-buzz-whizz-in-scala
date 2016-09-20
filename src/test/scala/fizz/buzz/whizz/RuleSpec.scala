@@ -27,7 +27,7 @@ class RuleSpec extends FunSpec with Matchers {
   }
 
   describe("fizz buzz whizz: using factory") {
-    import Rule.{times, contains, default, allof}
+    import Rule.{times, contains, default, allof, anyof}
 
     it ("times(3) => Fizz") {
       times(3, "Fizz")(3*2) should be("Fizz")
@@ -43,6 +43,10 @@ class RuleSpec extends FunSpec with Matchers {
 
     it ("times(3) && times(5) -> FizzBuzz" ) {
       allof(times(3, "Fizz"), times(5, "Buzz"))(3*5) should be("FizzBuzz")
+    }
+
+    it ("times(3) -> Fizz || times(5) -> Buzz" ) {
+      anyof(times(3, "Fizz"), times(5, "Buzz"))(3*5) should be("Fizz")
     }
   }
 }

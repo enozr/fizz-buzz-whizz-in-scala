@@ -16,4 +16,7 @@ object Rule {
 
   def allof(rules: (Int => String)*): Int => String =
     m => rules.foldLeft("") { _ + _(m) }
+
+  def anyof(rules: (Int => String)*): Int => String =
+    m => rules.map(_(m)).filterNot(_.isEmpty).headOption.getOrElse("")
 }
