@@ -13,7 +13,8 @@ class RuleSpec extends FunSpec with Matchers {
     }
 
     it ("default rule" ) {
-      Default()(2) should be("2")
+      import Default.default
+      default(2) should be("2")
     }
   }
 }

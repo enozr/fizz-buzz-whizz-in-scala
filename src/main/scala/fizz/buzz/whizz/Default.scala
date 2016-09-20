@@ -1,5 +1,9 @@
 package fizz.buzz.whizz
 
-case class Default() {
-  def apply(m: Int): String = m.toString
+class Default {
+  def apply(m: Int) = m.toString
+}
+
+object Default {
+  def default = new Default
 }
