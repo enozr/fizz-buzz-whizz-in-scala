@@ -29,11 +29,15 @@ class RuleSpec extends FunSpec with Matchers {
 
   describe("fizz buzz whizz: extract atom") {
     import Rule.atom
-    import Matcher.times
+    import Matcher.{times, contains}
     import Action.to
 
     it ("times(3) => Fizz") {
       atom(times(3), to("Fizz"))(3*2) should be("Fizz")
+    }
+
+    it ("contains(3) => Fizz") {
+      atom(contains(3), to("Fizz"))(13) should be("Fizz")
     }
   }
 }
