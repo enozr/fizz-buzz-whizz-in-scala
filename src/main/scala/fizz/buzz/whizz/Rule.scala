@@ -1,18 +1,20 @@
 package fizz.buzz.whizz
 
 object Rule {
-  def times(n: Int, word: String): Int => String =
+  type Rule = Int => String
+
+  def times(n: Int, word: String): Rule =
     m => if (m % n == 0) word else ""
 
-  def contains(n: Int, word: String): Int => String =
+  def contains(n: Int, word: String): Rule =
     m => if (m.toString.contains(n.toString)) word else ""
 
-  def default: Int => String =
+  def default: Rule =
     m => m.toString
 
-  def allof(rules: (Int => String)*): Int => String =
+  def allof(rules: Rule*): Rule =
     m => rules.foldLeft("") { _ + _(m) }
 
-  def anyof(rules: (Int => String)*): Int => String =
+  def anyof(rules: Rule*): Rule =
     m => rules.map(_(m)).filterNot(_.isEmpty).headOption.getOrElse("")
 }
