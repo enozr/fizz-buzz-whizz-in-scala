@@ -1,4 +1,4 @@
-package fizz.buzz.whizz
+package fizzbuzz.core
 
 object Matcher {
   type Matcher = Int => Boolean

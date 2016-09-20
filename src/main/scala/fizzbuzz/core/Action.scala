@@ -1,4 +1,4 @@
-package fizz.buzz.whizz
+package fizzbuzz.core
 
 object Action {
   type Action = Int => String

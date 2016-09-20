@@ -1,4 +1,4 @@
-package fizz.buzz.whizz
+package fizzbuzz.core
 
 import Rule._
 import Matcher._
@@ -13,6 +13,7 @@ object Game {
     val r3 = atom(contains(n1), to("Fizz"))
     val r2 = allof(r_n1, r_n2, r_n3)
     val rd = atom(always(true), nop)
+
     anyof(r3, r2, rd)
   }
 }

@@ -1,4 +1,4 @@
-package fizz.buzz.whizz
+package fizzbuzz.core
 
 object Rule {
   type Rule = Int => String
