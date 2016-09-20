@@ -13,4 +13,7 @@ object Rule {
 
   def default: Int => String =
     m => m.toString
+
+  def allof(rules: (Int => String)*): Int => String =
+    m => rules.foldLeft("") { _ + _(m) }
 }
