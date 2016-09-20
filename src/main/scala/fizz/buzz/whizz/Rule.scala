@@ -10,4 +10,7 @@ object Rule {
 
   def contains(n: Int, word: String): Int => String =
     m => if (m.toString.contains(n.toString)) word else ""
+
+  def default: Int => String =
+    m => m.toString
 }
