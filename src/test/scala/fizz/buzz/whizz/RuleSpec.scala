@@ -28,7 +28,7 @@ class RuleSpec extends FunSpec with Matchers {
   }
 
   describe("fizz buzz whizz: extract atom") {
-    import Rule.atom
+    import Rule.{atom, allof, anyof}
     import Matcher.{times, contains, always}
     import Action.{to, nop}
 
@@ -42,6 +42,14 @@ class RuleSpec extends FunSpec with Matchers {
 
     it ("default rule" ) {
       atom(always(true), nop)(2) should be("2")
+    }
+
+    it ("times(3) && times(5) -> FizzBuzz" ) {
+      allof(atom(times(3), to("Fizz")), atom(times(5), to("Buzz")))(3*5) should be("FizzBuzz")
+    }
+
+    it ("times(3) -> Fizz || times(5) -> Buzz" ) {
+      anyof(atom(times(3), to("Fizz")), atom(times(5), to("Buzz")))(3*5) should be("Fizz")
     }
   }
 }
