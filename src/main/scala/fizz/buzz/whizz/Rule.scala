@@ -3,7 +3,9 @@ package fizz.buzz.whizz
 object Rule {
   type Rule = Int => String
 
-  def atom(matcher: Int => Boolean, action: Int => String): Rule =
+  import Matcher.Matcher
+
+  def atom(matcher: => Matcher, action: Int => String): Rule =
     m => if (matcher(m)) action(m) else ""
 
   def times(n: Int, word: String): Rule =

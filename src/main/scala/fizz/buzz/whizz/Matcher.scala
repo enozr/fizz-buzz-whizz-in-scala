@@ -1,7 +1,9 @@
 package fizz.buzz.whizz
 
 object Matcher {
-  def times(n: Int): Int => Boolean = _ % n == 0
-  def contains(n: Int): Int => Boolean = _.toString.contains(n.toString)
-  def always(bool: Boolean): Int => Boolean = _ => bool
+  type Matcher = Int => Boolean
+
+  def times(n: Int): Matcher = _ % n == 0
+  def contains(n: Int): Matcher = _.toString.contains(n.toString)
+  def always(bool: Boolean): Matcher = _ => bool
 }
