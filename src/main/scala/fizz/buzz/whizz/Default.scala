@@ -1,6 +1,6 @@
 package fizz.buzz.whizz
 
-class Default {
+class Default extends Rule {
   def apply(m: Int) = m.toString
 }
 

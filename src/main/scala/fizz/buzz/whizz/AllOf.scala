@@ -1,6 +1,6 @@
 package fizz.buzz.whizz
 
-case class AllOf(times: Times*) {
+case class AllOf(rules: Rule*) extends Rule {
   def apply(n: Int): String =
-    times.foldLeft("") { _ + _(n) }
+    rules.foldLeft("") { _ + _(n) }
 }

@@ -1,6 +1,6 @@
 package fizz.buzz.whizz
 
-case class AnyOf(times: Times*) {
+case class AnyOf(rules: Rule*) extends Rule {
   def apply(m: Int): String =
-    times.map(_(m)).filterNot(_.isEmpty).headOption.getOrElse("")
+    rules.map(_(m)).filterNot(_.isEmpty).headOption.getOrElse("")
 }
