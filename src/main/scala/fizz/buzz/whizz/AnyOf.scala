@@ -1,5 +1,6 @@
 package fizz.buzz.whizz
 
 case class AnyOf(times: Times*) {
-  def apply(n: Int): String = "Fizz"
+  def apply(m: Int): String =
+    times.map(_(m)).filterNot(_.isEmpty).headOption.getOrElse("")
 }
