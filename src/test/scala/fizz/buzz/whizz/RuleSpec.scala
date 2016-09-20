@@ -25,4 +25,12 @@ class RuleSpec extends FunSpec with Matchers {
       AnyOf(Times(3, "Fizz"), Times(5, "Buzz"))(3*5) should be("Fizz")
     }
   }
+
+  describe("fizz buzz whizz: using factory") {
+    import Rule.times
+
+    it ("times(3) => Fizz") {
+      times(3, "Fizz")(3*2) should be("Fizz")
+    }
+  }
 }
