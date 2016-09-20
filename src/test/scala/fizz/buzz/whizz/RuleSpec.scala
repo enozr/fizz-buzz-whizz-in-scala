@@ -11,5 +11,9 @@ class RuleSpec extends FunSpec with Matchers {
     it ("contains(3) => Fizz") {
       Contains(3, "Fizz")(13) should be("Fizz")
     }
+
+    it ("default rule" ) {
+      Default()(2) should be("2")
+    }
   }
 }
