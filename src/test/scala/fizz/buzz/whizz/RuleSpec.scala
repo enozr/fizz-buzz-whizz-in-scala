@@ -16,5 +16,9 @@ class RuleSpec extends FunSpec with Matchers {
       import Default.default
       default(2) should be("2")
     }
+
+    it ("times(3) && times(5) -> FizzBuzz" ) {
+      AllOf(Times(3, "Fizz"), Times(5, "Buzz"))(3*5) should be("FizzBuzz")
+    }
   }
 }
