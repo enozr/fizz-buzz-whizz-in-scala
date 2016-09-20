@@ -20,5 +20,9 @@ class RuleSpec extends FunSpec with Matchers {
     it ("times(3) && times(5) -> FizzBuzz" ) {
       AllOf(Times(3, "Fizz"), Times(5, "Buzz"))(3*5) should be("FizzBuzz")
     }
+
+    it ("times(3) -> Fizz || times(5) -> Buzz" ) {
+      AnyOf(Times(3, "Fizz"), Times(5, "Buzz"))(3*5) should be("Fizz")
+    }
   }
 }
