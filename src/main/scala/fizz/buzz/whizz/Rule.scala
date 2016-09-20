@@ -9,15 +9,6 @@ object Rule {
   def atom(matcher: => Matcher, action: => Action): Rule =
     m => if (matcher(m)) action(m) else ""
 
-  def times(n: Int, word: String): Rule =
-    m => if (m % n == 0) word else ""
-
-  def contains(n: Int, word: String): Rule =
-    m => if (m.toString.contains(n.toString)) word else ""
-
-  def default: Rule =
-    m => m.toString
-
   def allof(rules: Rule*): Rule =
     m => rules.foldLeft("") { _ + _(m) }
 
