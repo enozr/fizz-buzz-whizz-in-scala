@@ -27,10 +27,14 @@ class RuleSpec extends FunSpec with Matchers {
   }
 
   describe("fizz buzz whizz: using factory") {
-    import Rule.times
+    import Rule.{times, contains}
 
     it ("times(3) => Fizz") {
       times(3, "Fizz")(3*2) should be("Fizz")
+    }
+
+    it ("contains(3) => Fizz") {
+      contains(3, "Fizz")(13) should be("Fizz")
     }
   }
 }
