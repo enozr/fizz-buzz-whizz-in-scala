@@ -4,8 +4,9 @@ object Rule {
   type Rule = Int => String
 
   import Matcher.Matcher
+  import Action.Action
 
-  def atom(matcher: => Matcher, action: Int => String): Rule =
+  def atom(matcher: => Matcher, action: => Action): Rule =
     m => if (matcher(m)) action(m) else ""
 
   def times(n: Int, word: String): Rule =
