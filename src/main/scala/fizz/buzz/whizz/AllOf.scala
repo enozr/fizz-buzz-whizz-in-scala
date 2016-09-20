@@ -1,9 +1,6 @@
 package fizz.buzz.whizz
 
 case class AllOf(times: Times*) {
-  def apply(n: Int): String = {
-    val result = new StringBuilder
-    times foreach { result append _(n) }
-    result.toString
-  }
+  def apply(n: Int): String =
+    times.foldLeft("") { (acc, t) => acc + t.apply(n) }
 }
